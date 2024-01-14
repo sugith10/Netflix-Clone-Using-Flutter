@@ -13,9 +13,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  lottie: ^3.0.0
-
-
+  lottie: 3.0.0
+  http: ^1.1.2
 
   cupertino_icons: ^1.0.2
 
@@ -35,6 +34,7 @@ flutter:
 
   assets:
     - assets/json/netflix_logo.json
+    - assets/img/netflix_logo0.png
 
 
 

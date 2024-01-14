@@ -1,8 +1,8 @@
-import 'package:Netflix/screen/splash.dart';
+import 'package:Netflix/screen/splash_screen/splash.dart';
 import 'package:flutter/material.dart';
 
-main(){
-  runApp(MyApp());
+main() {
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -11,8 +11,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Netflix',
       debugShowCheckedModeBanner: false,
-      home: Splash(),
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(backgroundColor: Colors.black),
+        colorScheme: const ColorScheme.dark(
+          // primary:Colors.black,
+          background: Colors.black,
+          secondary: Color.fromARGB(255, 255, 255, 255),
+        ),
+      ),
+      home: const Splash(),
     );
   }
 }
