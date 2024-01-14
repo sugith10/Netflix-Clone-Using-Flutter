@@ -23,12 +23,15 @@ class SearchScreen extends StatelessWidget {
           children: [
             Container(
               height: 50,
-              color: Color.fromARGB(255, 46, 46, 46),
-              child:  Row(
+              color: const Color.fromARGB(255, 46, 46, 46),
+              child: Row(
                 children: [
                   const Padding(
                     padding: EdgeInsets.only(left: 20, right: 10),
-                    child: Icon(Icons.search ,  color: Colors.grey,),
+                    child: Icon(
+                      Icons.search,
+                      color: Colors.grey,
+                    ),
                   ),
                   Expanded(
                     child: TextField(
@@ -36,16 +39,17 @@ class SearchScreen extends StatelessWidget {
                       autofocus: true,
                       cursorColor: Colors.white,
                       decoration: const InputDecoration(
-                        hintText: 'Search games, shows, movies...',
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none
-                        )
-                      ),
+                          hintText: 'Search games, shows, movies...',
+                          border:
+                              OutlineInputBorder(borderSide: BorderSide.none)),
                     ),
                   ),
                   const Padding(
                     padding: EdgeInsets.only(right: 20, left: 10),
-                    child: Icon(Icons.mic_none_outlined, color: Colors.grey,),
+                    child: Icon(
+                      Icons.mic_none_outlined,
+                      color: Colors.grey,
+                    ),
                   )
                 ],
               ),
