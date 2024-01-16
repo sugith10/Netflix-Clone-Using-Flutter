@@ -1,3 +1,4 @@
+import 'package:Netflix/services/api.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -30,11 +31,15 @@ class PlayButton extends StatelessWidget {
             color,
           ),
         ),
-        onPressed: () {},
+        onPressed: () async {
+          print('start');
+          // ApiCall().getRecommedMovies();
+          print('end');
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon as IconData, color: textColor),
+            Icon(icon, color: textColor),
             Text(
               text,
               style: TextStyle(color: textColor),

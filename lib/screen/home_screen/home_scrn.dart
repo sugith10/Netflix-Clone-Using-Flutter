@@ -1,3 +1,4 @@
+import 'package:Netflix/screen/home_screen/widgets/personal_category.dart';
 import 'package:Netflix/screen/home_screen/widgets/play.dart';
 import 'package:flutter/material.dart';
 
@@ -26,15 +27,20 @@ class HomeScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       PlayButton(
-                          color: const Color.fromARGB(255, 255, 255, 255),
-                          textColor: const Color.fromRGBO(0, 0, 0, 1),
-                          text: 'Play',
-                          icon: Icons.play_arrow),
-                      PlayButton(
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                        textColor: const Color.fromRGBO(0, 0, 0, 1),
+                        text: 'Play',
+                        icon: Icons.play_arrow,
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: PlayButton(
                           color: Colors.grey.withOpacity(0.4),
                           textColor: const Color.fromRGBO(255, 255, 255, 1),
                           text: 'My List',
-                          icon: Icons.check),
+                          icon: Icons.check,
+                        ),
+                      ),
                     ],
                   ),
                 )
@@ -44,22 +50,12 @@ class HomeScreen extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 10,
-                  bottom: 10),
-                child: Text(
-                  'Because you watched Gatta Kusthi',
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
+              const PersonalCategoryTitle(
+                  title: 'Because you watched Gatta Kusthi'),
               Container(
                 color: Colors.white,
                 height: 150,
-              )
+              ),
             ],
           )
         ],
