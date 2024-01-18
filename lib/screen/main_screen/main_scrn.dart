@@ -16,7 +16,8 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-     ApiCall().getRecommedMovies();
+    // ApiCall.getRecommedMovies();
+    //  LastFmApiClient().getTopAlbums();
   }
 
 
