@@ -1,5 +1,6 @@
-import 'package:Netflix/screen/search_screen/search_screen.dart';
+
 import 'package:flutter/material.dart';
+import 'package:new_netflix/screen/search_screen/search_screen.dart';
 
 class MainScrnUtil{
   static void navigateToSearchScreen( BuildContext ctx) {

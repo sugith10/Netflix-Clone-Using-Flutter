@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:Netflix/screen/main_screen/main_scrn.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:new_netflix/screen/main_screen/main_scrn.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
