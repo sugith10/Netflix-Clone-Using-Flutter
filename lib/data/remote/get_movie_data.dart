@@ -34,7 +34,7 @@ class MovieData {
    return [];
   }
 
-Future<List<Movie>> getTrendingMovies(trendingMoviesUrl)async{
+Future<List<Movie>> getTrendingMovies()async{
   List<Movie> trendingMovies = await _fetchMovieData(trendingMoviesUrl);
   return trendingMovies;
 }

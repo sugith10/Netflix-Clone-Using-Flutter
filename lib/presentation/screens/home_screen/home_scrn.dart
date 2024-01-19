@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nutflix/presentation/screens/home_screen/widget/personal_category.dart';
-import 'package:nutflix/presentation/screens/home_screen/widget/play.dart';
 import 'package:nutflix/presentation/screens/home_screen/widget/wallpaper.dart';
+import 'package:nutflix/presentation/screens/widgets/movie_contents.dart';
+import 'package:nutflix/presentation/screens/widgets/special_contens.dart';
+import 'package:nutflix/presentation/screens/widgets/tv_contents.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,22 +12,20 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        children: [
-          const Padding(
+        children: const [
+          Padding(
             padding: EdgeInsets.all(20.0),
             child: Wallpaper(),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const PersonalCategoryTitle(
-                  title: 'Because you watched Gatta Kusthi'),
-              Container(
-                color: Colors.white,
-                height: 150,
-              ),
-            ],
-          )
+          MovieContents(title: 'Latest Movies'),
+          SizedBox(
+            height: 25,
+          ),
+          TvContents(title: 'Tranding Tv Shows'),
+          SizedBox(
+            height: 25,
+          ),
+          SpecialContents(title:'Only on Netflix'),
         ],
       ),
     );
