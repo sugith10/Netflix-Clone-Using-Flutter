@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:nutflix/screen/search_screen/search_screen.dart';
+import 'package:nutflix/presentation/screens/search_screen/search_screen.dart';
 
 
 class MainScrnUtil{

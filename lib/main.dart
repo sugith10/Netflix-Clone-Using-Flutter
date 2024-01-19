@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:nutflix/screen/splash_screen/splash.dart';
+import 'package:nutflix/presentation/screens/splash_screen/splash.dart';
 
 
 main() {

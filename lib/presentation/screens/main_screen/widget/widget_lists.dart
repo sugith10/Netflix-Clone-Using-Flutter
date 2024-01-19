@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:nutflix/screen/home_screen/home_scrn.dart';
-import 'package:nutflix/screen/my_netflix_screen/my_netflix_scrn.dart';
-import 'package:nutflix/screen/new_screen/new_scrn.dart';
-import 'package:nutflix/screen/search_screen/search_screen.dart';
+import 'package:nutflix/presentation/screens/home_screen/home_scrn.dart';
+import 'package:nutflix/presentation/screens/my_netflix_screen/my_netflix_scrn.dart';
+import 'package:nutflix/presentation/screens/new_screen/new_scrn.dart';
+import 'package:nutflix/presentation/screens/search_screen/search_screen.dart';
 
 class WidgetList {
   BuildContext context;

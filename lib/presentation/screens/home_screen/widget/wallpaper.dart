@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:nutflix/screen/home_screen/widgets/personal_category.dart';
-import 'package:nutflix/screen/home_screen/widgets/play.dart';
+import 'package:nutflix/presentation/screens/home_screen/widget/play.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class Wallpaper extends StatelessWidget {
+  const Wallpaper({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Stack(
+    return Stack(
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(15),
@@ -45,21 +39,6 @@ class HomeScreen extends StatelessWidget {
                   ),
                 )
               ],
-            ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const PersonalCategoryTitle(
-                  title: 'Because you watched Gatta Kusthi'),
-              Container(
-                color: Colors.white,
-                height: 150,
-              ),
-            ],
-          )
-        ],
-      ),
-    );
+            );
   }
 }
