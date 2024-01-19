@@ -1,5 +1,4 @@
-import 'package:Netflix/screen/main_screen/widgets/widget_lists.dart';
-import 'package:Netflix/services/api.dart';
+
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -12,12 +11,6 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    //  ApiCall().getRecommedMovies();
-  }
 
 
 

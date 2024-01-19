@@ -1,5 +1,7 @@
-import 'package:Netflix/screen/splash_screen/splash.dart';
+
 import 'package:flutter/material.dart';
+import 'package:nutflix/screen/splash_screen/splash.dart';
+
 
 main() {
   runApp(const MyApp());

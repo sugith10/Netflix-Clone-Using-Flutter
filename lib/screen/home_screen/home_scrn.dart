@@ -1,6 +1,6 @@
-import 'package:Netflix/screen/home_screen/widgets/personal_category.dart';
-import 'package:Netflix/screen/home_screen/widgets/play.dart';
 import 'package:flutter/material.dart';
+import 'package:nutflix/screen/home_screen/widgets/personal_category.dart';
+import 'package:nutflix/screen/home_screen/widgets/play.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

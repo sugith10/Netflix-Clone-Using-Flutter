@@ -1,4 +1,4 @@
-name: Netflix
+name: nutflix
 description: "A new Flutter project."
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -17,6 +17,7 @@ dependencies:
   http: ^1.1.2
   carousel_slider: ^4.2.1
   connectivity_plus: ^5.0.2
+  dio: ^5.4.0
 
   cupertino_icons: ^1.0.2
 
