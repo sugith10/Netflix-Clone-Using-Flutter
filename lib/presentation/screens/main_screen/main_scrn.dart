@@ -19,6 +19,15 @@ class _MainScreenState extends State<MainScreen> {
         automaticallyImplyLeading: false,
         title: WidgetList(context).appbarTitle[_currentIndex],
         actions: WidgetList(context).appbarActions[_currentIndex],
+    
+        //  bottom: TabBar(
+        //       tabs: [
+        //         Tab(text: 'Tab 1'),
+        //         Tab(text: 'Tab 2'),
+        //         Tab(text: 'Tab 3'),
+        //       ],
+        //     ),
+       
       ),
       body: PopScope(
         canPop: false,

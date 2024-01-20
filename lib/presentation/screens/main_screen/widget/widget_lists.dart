@@ -4,7 +4,7 @@ import 'package:nutflix/controller/screen_actions_controller/screen_navigation_c
 import 'package:nutflix/presentation/screens/home_screen/home_scrn.dart';
 import 'package:nutflix/presentation/screens/my_netflix_screen/my_netflix_scrn.dart';
 import 'package:nutflix/presentation/screens/new_screen/new_and_hot_scrn.dart';
-import 'package:nutflix/presentation/screens/search_screen/search_screen.dart';
+
 
 class WidgetList {
   BuildContext context;
