@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nutflix/controller/get_tv_data.dart';
+import 'package:nutflix/controller/api_controller/get_tv_data.dart';
 import 'package:nutflix/model/tv_show.dart';
 import 'package:nutflix/presentation/screens/home_screen/widget/personal_category.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nutflix/controller/get_movie_data.dart';
+import 'package:nutflix/controller/api_controller/get_movie_data.dart';
 import 'package:nutflix/model/movie.dart';
 import 'package:nutflix/presentation/screens/home_screen/widget/personal_category.dart';
 
@@ -22,7 +22,7 @@ class SpecialContents extends StatelessWidget {
         future: MovieData().getTrendingMovies() ,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator()); // Show a loading indicator while waiting for data.
+            return const Center(child: CircularProgressIndicator()); 
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {

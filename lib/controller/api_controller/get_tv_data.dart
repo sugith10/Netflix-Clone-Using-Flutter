@@ -17,7 +17,7 @@ class TvData{
     if(result.isNotEmpty){
       List<TvShow> movieDetails = result.map((dynamic item) {
         String tvPoster = apiCall.imageLink + item['poster_path'];
-        String backDrop = apiCall.imageLink + item['poster_path'];
+        String backDrop = apiCall.imageLink + item['backdrop_path'];
         return TvShow(
        tvShowName: item['original_name'],
        tvShowPoster: tvPoster,
