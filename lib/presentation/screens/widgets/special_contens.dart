@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nutflix/data/remote/get_movie_data.dart';
-import 'package:nutflix/domain/models/movie.dart';
+import 'package:nutflix/controller/get_movie_data.dart';
+import 'package:nutflix/model/movie.dart';
 import 'package:nutflix/presentation/screens/home_screen/widget/personal_category.dart';
 
 class SpecialContents extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'dart:developer';
-import 'package:nutflix/domain/models/movie.dart';
+import 'package:nutflix/model/movie.dart';
 import 'package:nutflix/services/tmdb_api_call.dart';
 
 class MovieData {
