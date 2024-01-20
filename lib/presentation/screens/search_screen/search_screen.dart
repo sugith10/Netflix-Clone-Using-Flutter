@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:nutflix/controller/api_controller/get_movie_data.dart';
+import 'package:nutflix/model/movie.dart';
+import 'package:nutflix/presentation/screens/new_screen/widget/new_items_widget.dart';
+import 'package:nutflix/presentation/screens/search_screen/widget/search_reaults_tile_widget.dart';
 
 // ignore: must_be_immutable
-class SearchScreen extends StatelessWidget {
-  SearchScreen({super.key});
-  TextEditingController searchCntrl = TextEditingController();
+class SearchScreen extends StatefulWidget {
+  const SearchScreen({super.key});
+
+  @override
+  State<SearchScreen> createState() => _SearchScreenState();
+}
+
+class _SearchScreenState extends State<SearchScreen> {
+  String searchContent = '';
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +46,7 @@ class SearchScreen extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(
-                      controller: searchCntrl,
+                      // controller: searchContent,
                       autofocus: true,
                       cursorColor: Colors.white,
                       decoration: const InputDecoration(
@@ -54,7 +64,41 @@ class SearchScreen extends StatelessWidget {
                   )
                 ],
               ),
-            )
+            ),
+           
+            FutureBuilder(
+                future: MovieData().getTrendingMovies(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                      child: SizedBox.shrink(),
+                    );
+                  } else if (snapshot.hasError) {
+                    return Center(
+                      child: Text('Error: ${snapshot.error}'),
+                    );
+                  } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                    return const Center(
+                      child: Center(
+                        child: Text('No data available'),
+                      ),
+                    );
+                  } else {
+                    List<Movie> movie = snapshot.data!;
+                    return Expanded(
+                      child: ListView.separated(
+                          itemBuilder: (context, index) {
+                            return SearchResultsTile(
+                              movie: movie[index],
+                            );
+                          },
+                          separatorBuilder: (context, index) => const SizedBox(
+                                height: 5,
+                              ),
+                          itemCount: movie.length),
+                    );
+                  }
+                })
           ],
         ));
   }

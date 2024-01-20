@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nutflix/controller/api_controller/get_movie_data.dart';
+import 'package:nutflix/controller/screen_actions_controller/screen_navigation_controller/screen_navigation/individual_content_scrn_navigation.dart';
 import 'package:nutflix/model/movie.dart';
 import 'package:nutflix/presentation/screens/home_screen/widget/personal_category.dart';
 
@@ -39,14 +40,17 @@ class SpecialContents extends StatelessWidget {
               itemBuilder: (context, index) {
                 Movie movieDetails = movie[index];
                 String poster = movieDetails.moviePoster;
-                return Container(
-                  margin: const EdgeInsets.only(left: 5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
+                return GestureDetector(
+                    onTap: () => IndividualContentScrnNavigation().navigateToIndividualContentScrn(context, movieDetails),
+                  child: Container(
+                    margin: const EdgeInsets.only(left: 5),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(5),
+                      child: Image.network(poster, fit: BoxFit.cover)),
                   ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(5),
-                    child: Image.network(poster, fit: BoxFit.cover)),
                 );
               },
             );
