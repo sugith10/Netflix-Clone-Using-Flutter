@@ -36,4 +36,8 @@ class TvData{
     List<TvShow> topRatedTvSeries = await _fetchTvData(_topRatedTvSeriesUrl);
     return topRatedTvSeries;
   }
+  // Future<List<TvShow>> popularTvSeries()async{
+  //   List<TvShow> popularTvSeries = await _fetchTvData(_popularTvSeriesUrl);
+  //   return popularTvSeries;
+  // }
 }

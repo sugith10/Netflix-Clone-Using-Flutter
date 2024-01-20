@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 class ApiCall {
  final String _apiKey = '8fd500dec7d3830c67ec5e565258e1a9';
- final String imageLink = 'https://image.tmdb.org/t/p/w185/';
+ final String imageLink = 'https://image.tmdb.org/t/p/original';
 
   Future<List> getData(String url)async{
     final uri = Uri.parse(url+_apiKey);

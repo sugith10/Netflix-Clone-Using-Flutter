@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:nutflix/controller/api_controller/get_tv_data.dart';
 import 'package:nutflix/model/tv_show.dart';
 import 'package:nutflix/presentation/screens/home_screen/widget/personal_category.dart';
 
 class TvContents extends StatelessWidget {
+  final Future<List<TvShow>>? tvShows;
   final String title;
-  const TvContents({required this.title, super.key});
+  const TvContents({required this.title, required this.tvShows, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class TvContents extends StatelessWidget {
           height: 170,
           width: MediaQuery.of(context).size.width,
           child: FutureBuilder<List<TvShow>>(
-        future: TvData().topRatedTvSeries() ,
+        future:  tvShows ,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator()); // Show a loading indicator while waiting for data.

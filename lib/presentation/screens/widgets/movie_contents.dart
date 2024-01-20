@@ -6,7 +6,8 @@ import 'package:nutflix/presentation/screens/home_screen/widget/personal_categor
 
 class MovieContents extends StatelessWidget {
   final String title;
-  const MovieContents({required this.title, super.key});
+  final Future<List<Movie>>? movies;
+  const MovieContents({required this.movies, required this.title, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class MovieContents extends StatelessWidget {
           height: 170,
           width: MediaQuery.of(context).size.width,
           child: FutureBuilder<List<Movie>>(
-        future: MovieData().getTrendingMovies() ,
+        future: movies,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator()); 

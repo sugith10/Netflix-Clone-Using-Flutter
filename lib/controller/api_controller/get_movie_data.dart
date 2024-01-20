@@ -14,9 +14,9 @@ class MovieData {
   final String upComingMoviesUrl =
       'https://api.themoviedb.org/3/movie/upcoming?api_key=';
 
-  Future<List<Movie>> _fetchMovieData(String url)async{
-   final result = await apiCall.getData(url);
-    if(result.isNotEmpty){
+  Future<List<Movie>> _fetchMovieData(String url) async {
+    final result = await apiCall.getData(url);
+    if (result.isNotEmpty) {
       List<Movie> movieDetails = result.map((dynamic item) {
         String moviePoster = apiCall.imageLink + item['poster_path'];
         String backDrop = apiCall.imageLink + item['backdrop_path'];
@@ -30,13 +30,24 @@ class MovieData {
 
       return movieDetails;
     }
-   log('somthing went wrong');
-   return [];
+    log('somthing went wrong');
+    return [];
   }
 
-Future<List<Movie>> getTrendingMovies()async{
-  List<Movie> trendingMovies = await _fetchMovieData(trendingMoviesUrl);
-  return trendingMovies;
-}
+  Future<List<Movie>> getTrendingMovies() async {
+    List<Movie> trendingMovies = await _fetchMovieData(trendingMoviesUrl);
+    return trendingMovies;
+  }
 
+  Future<List<Movie>> getTopRatedMovies() async {
+    return await _fetchMovieData(topRatedMoviesUrl);
+  }
+
+  Future<List<Movie>> getNowPlayingMovies() async {
+    return await _fetchMovieData(nowPlayingMoviesUrl);
+  }
+
+  Future<List<Movie>> getUpcomingMovies() async {
+    return await _fetchMovieData(upComingMoviesUrl);
+  }
 }

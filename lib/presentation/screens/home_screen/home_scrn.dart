@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nutflix/controller/api_controller/get_movie_data.dart';
+import 'package:nutflix/controller/api_controller/get_tv_data.dart';
 import 'package:nutflix/presentation/screens/home_screen/widget/personal_category.dart';
 import 'package:nutflix/presentation/screens/home_screen/widget/wallpaper.dart';
 import 'package:nutflix/presentation/screens/widgets/movie_contents.dart';
@@ -12,20 +14,46 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        children: const [
-          Padding(
+        children: [
+          const Padding(
             padding: EdgeInsets.all(20.0),
             child: Wallpaper(),
           ),
-          MovieContents(title: 'Latest Movies'),
-          SizedBox(
+          MovieContents(
+            title: 'Latest Movies',
+            movies: MovieData().getTrendingMovies(),
+          ),
+          const SizedBox(
             height: 25,
           ),
-          TvContents(title: 'Tranding Tv Shows'),
-          SizedBox(
+          MovieContents(
+            title: 'Top Rated Movies',
+            movies: MovieData().getTopRatedMovies(),
+          ),
+          const SizedBox(
             height: 25,
           ),
-          SpecialContents(title:'Only on Netflix'),
+          MovieContents(
+            title: 'Trending Movies',
+            movies: MovieData().getNowPlayingMovies(),
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          const SpecialContents(title: 'Only on Netflix'),
+          const SizedBox(
+            height: 25,
+          ),
+          TvContents(
+              title: 'Tranding Tv Shows', tvShows: TvData().topRatedTvSeries()),
+          const SizedBox(
+            height: 25,
+          ),
+          // TvContents(
+          //     title: 'Popular Tv Shows', tvShows: TvData().popularTvSeries()),
+          // const SizedBox(
+          //   height: 25,
+          // ),
         ],
       ),
     );
