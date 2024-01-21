@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nutflix/controller/api_controller/get_movie_data.dart';
 import 'package:nutflix/model/movie.dart';
 
-import 'package:nutflix/presentation/screens/new_screen/widget/new_items_widget.dart';
+import 'package:nutflix/presentation/screens/new_and_hot_screen/widget/new_items_widget.dart';
 
 class NewAndHotScrn extends StatelessWidget {
 

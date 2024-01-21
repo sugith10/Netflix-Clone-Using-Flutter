@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nutflix/controller/api_controller/get_movie_data.dart';
 import 'package:nutflix/controller/api_controller/get_tv_data.dart';
-import 'package:nutflix/presentation/screens/home_screen/widget/personal_category.dart';
+import 'package:nutflix/presentation/screens/home_screen/widget/select_category_widget.dart';
 import 'package:nutflix/presentation/screens/home_screen/widget/wallpaper.dart';
 import 'package:nutflix/presentation/screens/widgets/movie_contents.dart';
 import 'package:nutflix/presentation/screens/widgets/special_contens.dart';
@@ -15,6 +15,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
+          const SelectCategoryWidget(),
           const Padding(
             padding: EdgeInsets.all(20.0),
             child: Wallpaper(),

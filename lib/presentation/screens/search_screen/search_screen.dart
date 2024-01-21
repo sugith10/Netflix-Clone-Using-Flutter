@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nutflix/controller/api_controller/get_movie_data.dart';
 import 'package:nutflix/model/movie.dart';
-import 'package:nutflix/presentation/screens/new_screen/widget/new_items_widget.dart';
+import 'package:nutflix/presentation/screens/new_and_hot_screen/widget/new_items_widget.dart';
 import 'package:nutflix/presentation/screens/search_screen/widget/search_reaults_tile_widget.dart';
 
 // ignore: must_be_immutable
@@ -35,9 +35,9 @@ class _SearchScreenState extends State<SearchScreen> {
             Container(
               height: 50,
               color: const Color.fromARGB(255, 46, 46, 46),
-              child: Row(
+              child: const Row(
                 children: [
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.only(left: 20, right: 10),
                     child: Icon(
                       Icons.search,
@@ -49,13 +49,13 @@ class _SearchScreenState extends State<SearchScreen> {
                       // controller: searchContent,
                       autofocus: true,
                       cursorColor: Colors.white,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                           hintText: 'Search games, shows, movies...',
                           border:
                               OutlineInputBorder(borderSide: BorderSide.none)),
                     ),
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.only(right: 20, left: 10),
                     child: Icon(
                       Icons.mic_none_outlined,

@@ -34,8 +34,15 @@ class MovieData {
     return [];
   }
 
+  Future<String> getTrendingWallpaper() async{
+     List<Movie> trendingMovies = await _fetchMovieData(trendingMoviesUrl);
+     Movie topMovie = trendingMovies[0];
+     return topMovie.moviePoster;
+  }
+
   Future<List<Movie>> getTrendingMovies() async {
     List<Movie> trendingMovies = await _fetchMovieData(trendingMoviesUrl);
+    
     return trendingMovies;
   }
 

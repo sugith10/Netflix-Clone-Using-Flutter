@@ -31,7 +31,7 @@ class ApiCall {
   final searchsUrl = 'https://api.themoviedb.org/3/search/movie?query=$value&include_adult=false&language=en-US&api_key=$_apiKey';
   final response = await http.get(Uri.parse(searchsUrl));
   if (response.statusCode == 200) {
-    final decodedData = json.decode(response.body)['results'] as List;
+    final decodedData = json.decode(response.body)['results'] as List<dynamic>;
     return decodedData
         .map((movie) => SearchMovie.fromJson(movie))
         // ignore: unnecessary_null_comparison

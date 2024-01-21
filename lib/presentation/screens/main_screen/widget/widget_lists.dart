@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:nutflix/controller/screen_actions_controller/screen_navigation_controller/screen_navigation/search_screen_navigation.dart';
-import 'package:nutflix/presentation/screens/home_screen/home_scrn.dart';
+import 'package:nutflix/presentation/screens/home_screen/home_screen.dart';
 import 'package:nutflix/presentation/screens/my_netflix_screen/my_netflix_scrn.dart';
-import 'package:nutflix/presentation/screens/new_screen/new_and_hot_scrn.dart';
+import 'package:nutflix/presentation/screens/new_and_hot_screen/new_and_hot_scrn.dart';
 
 
 class WidgetList {
