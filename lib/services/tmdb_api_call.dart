@@ -11,10 +11,8 @@ class ApiCall {
     if(search){
       uri = Uri.parse(url);
     }
-    
     try{
       final response = await http.get(uri);
-
       if(response.statusCode == 200 ){
         log('successfully fetched the data');
             final json = jsonDecode(response.body);
@@ -35,6 +33,13 @@ class ApiCall {
   log(searchsUrl );
   return getData(searchsUrl , search: true);
 }
+
+  Future<List> trailer(id) async{
+    final searchUrl = 'https://api.themoviedb.org/3/movie/$id/videos?api_key=$_apiKey';
+    return getData(searchUrl, search: true);
+  }
+
+
 
 }
 

@@ -17,6 +17,8 @@ class SearchingData{
           moviePoster: moviePoster,
           movieBackdrop: backDrop,
           movieOverview: item['overview'],
+          releaseDate: item['release_date'],
+          id: item['id'],
         );
       }).toList();
       return movieDetails;
@@ -25,7 +27,8 @@ class SearchingData{
     return [];
    }
 
-   Future<List<Movie>> getSearchingMovies(String value) async {    List<Movie> trendingMovies = await _search(value);
+   Future<List<Movie>> getSearchingMovies(String value) async {   
+     List<Movie> trendingMovies = await _search(value);
     return trendingMovies;
   }
 

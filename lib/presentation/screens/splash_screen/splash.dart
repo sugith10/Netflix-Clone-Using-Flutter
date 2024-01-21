@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:nutflix/presentation/screens/main_screen/main_scrn.dart';
+import 'package:nutflix/presentation/screens/screen_core/screen_core.dart';
 
 
 class Splash extends StatefulWidget {

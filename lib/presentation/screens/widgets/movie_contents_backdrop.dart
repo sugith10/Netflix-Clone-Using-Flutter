@@ -3,10 +3,10 @@ import 'package:nutflix/controller/screen_actions_controller/screen_navigation_c
 import 'package:nutflix/model/movie.dart';
 import 'package:nutflix/presentation/screens/home_screen/widget/personal_category.dart';
 
-class MovieContents extends StatelessWidget {
+class MovieContentsBackDrop extends StatelessWidget {
   final String title;
   final Future<List<Movie>>? movies;
-  const MovieContents({required this.movies, required this.title, super.key});
+  const MovieContentsBackDrop({required this.movies, required this.title, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class MovieContents extends StatelessWidget {
                 title: title,
               ),
         SizedBox(
-          height: 170,
+          height: 150,
           width: MediaQuery.of(context).size.width,
           child: FutureBuilder<List<Movie>>(
         future: movies,
@@ -34,7 +34,7 @@ class MovieContents extends StatelessWidget {
               itemCount: movie.length,
               padEnds: false,
               controller: PageController(
-                viewportFraction: 0.3,
+                viewportFraction: 0.65,
                 // initialPage: 1,
               ),
               itemBuilder: (context, index) {
@@ -49,7 +49,7 @@ class MovieContents extends StatelessWidget {
                     ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(5),
-                      child: Image.network(movieDetails.moviePoster, fit: BoxFit.cover)),
+                      child: Image.network(movieDetails.movieBackdrop, fit: BoxFit.cover)),
                   ),
                 );
               },

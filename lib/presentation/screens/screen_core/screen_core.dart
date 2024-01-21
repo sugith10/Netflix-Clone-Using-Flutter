@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nutflix/presentation/screens/main_screen/widget/widget_lists.dart';
+import 'package:nutflix/presentation/screens/screen_core/widget/widget_lists.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -19,14 +19,6 @@ class _MainScreenState extends State<MainScreen> {
         automaticallyImplyLeading: false,
         title: WidgetList(context).appbarTitle[_currentIndex],
         actions: WidgetList(context).appbarActions[_currentIndex],
-    
-        //  bottom: TabBar(
-        //       tabs: [
-        //         Tab(text: 'Tab 1'),
-        //         Tab(text: 'Tab 2'),
-        //         Tab(text: 'Tab 3'),
-        //       ],
-        //     ),
        
       ),
       body: PopScope(

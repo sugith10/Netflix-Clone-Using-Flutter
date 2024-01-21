@@ -32,7 +32,7 @@ class IndividualContentScrn extends StatelessWidget {
       body: ListView(
         children: [
           Image.network(
-            movie.movieBackdrop!,
+            movie.movieBackdrop,
             width: double.infinity,
             height: 250,
             fit: BoxFit.cover,
@@ -50,20 +50,22 @@ class IndividualContentScrn extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                const ElevatedButtonWidget(
+                ElevatedButtonWidget(
                   color: Color.fromARGB(255, 240, 240, 240),
                   textColor: Colors.black,
                   iconData: Icons.play_arrow_sharp,
-                  text: 'Resume',
+                  text: 'Play',
+                  movie: movie,
                 ),
                 const SizedBox(
                   height: 7,
                 ),
-                const ElevatedButtonWidget(
+                ElevatedButtonWidget(
                   color: Color.fromARGB(235, 61, 61, 61),
                   textColor: Colors.white,
                   iconData: Icons.download,
                   text: 'Download',
+                  movie: movie,
                 ),
                 const SizedBox(
                   height: 25,

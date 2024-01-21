@@ -25,6 +25,8 @@ class MovieData {
           moviePoster: moviePoster,
           movieBackdrop: backDrop,
           movieOverview: item['overview'],
+          releaseDate: item['release_date'],
+          id: item['id'],
         );
       }).toList();
 

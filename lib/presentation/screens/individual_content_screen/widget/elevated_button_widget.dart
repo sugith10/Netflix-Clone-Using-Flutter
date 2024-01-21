@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:nutflix/controller/api_controller/get_trailer_data.dart';
+import 'package:nutflix/model/movie.dart';
+import 'package:nutflix/model/trailer.dart';
+import 'package:nutflix/presentation/screens/play_trailer_screen/play_trailer_screen.dart';
 
 class ElevatedButtonWidget extends StatelessWidget {
   final Color color;
   final Color textColor;
   final IconData iconData;
   final String text;
+  final Movie movie;
   const ElevatedButtonWidget({
     required this.color,
     required this.textColor,
     required this.iconData,
     required this.text,
+    required this.movie,
     super.key,
   });
 
@@ -22,13 +28,27 @@ class ElevatedButtonWidget extends StatelessWidget {
             ),
             shape: MaterialStatePropertyAll(ContinuousRectangleBorder(
                 borderRadius: BorderRadius.circular(5))),
-            fixedSize: const MaterialStatePropertyAll(Size(double.infinity, 50))),
-        onPressed: () {},
+            fixedSize:
+                const MaterialStatePropertyAll(Size(double.infinity, 50))),
+        onPressed: () async {
+          Trailer? trailer =
+              await TrailerData().fetchMovieData(movie.id);
+
+          if (trailer != null && trailer.site == 'YouTube') {
+            // ignore: use_build_context_synchronously
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => PlayTrailer(
+                          url: trailer.key,
+                        )));
+          }
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
-            iconData,
+              iconData,
               color: textColor,
             ),
             const SizedBox(
@@ -44,6 +64,5 @@ class ElevatedButtonWidget extends StatelessWidget {
             )
           ],
         ));
-    ;
   }
 }

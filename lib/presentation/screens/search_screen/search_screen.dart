@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nutflix/controller/api_controller/get_movie_data.dart';
 import 'package:nutflix/controller/api_controller/search_data.dart';
 import 'package:nutflix/model/movie.dart';
-import 'package:nutflix/model/search.dart';
+import 'package:nutflix/model/trailer.dart';
 import 'package:nutflix/presentation/screens/search_screen/widget/search_reaults_tile_widget.dart';
 
 TextEditingController searchController = TextEditingController();
