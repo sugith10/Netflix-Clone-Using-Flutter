@@ -19,7 +19,7 @@ class MovieData {
     if (result.isNotEmpty) {
       List<Movie> movieDetails = result.map((dynamic item) {
         String moviePoster = apiCall.imageLink + item['poster_path'];
-        String backDrop = apiCall.imageLink + item['backdrop_path'];
+        String backDrop = apiCall.imageLink + (item['backdrop_path'] ?? item['poster_path']) ;
         return Movie(
           movieName: item['original_title'],
           moviePoster: moviePoster,

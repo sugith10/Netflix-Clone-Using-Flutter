@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nutflix/controller/api_controller/get_movie_data.dart';
 import 'package:nutflix/model/movie.dart';
-
+import 'package:nutflix/presentation/screens/new_and_hot_screen/widget/new.dart';
 import 'package:nutflix/presentation/screens/new_and_hot_screen/widget/new_items_widget.dart';
 
 class NewAndHotScrn extends StatelessWidget {
@@ -13,10 +13,19 @@ class NewAndHotScrn extends StatelessWidget {
     return Scaffold(
         body:  Column(
         children: [
-            Container(
+            const SizedBox(
           height: 50,
-          child: Center(
-            child: Text('Fixed Widget'),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+               SelectOptionsWidget(title: '🍿 Coming Soon'),
+               SelectOptionsWidget(title: "🔥 Everyone's Watching"),
+               SelectOptionsWidget(title: '🎮 Games'),
+               SelectOptionsWidget(title: '🔝 Top Tv Shows'),   
+                SelectOptionsWidget(title: '🔝 Top Tv Movies'),   
+              ],
+            ),
           ),
         ),
         const SizedBox(

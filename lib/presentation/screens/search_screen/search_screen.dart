@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:nutflix/controller/api_controller/get_movie_data.dart';
+import 'package:nutflix/controller/api_controller/search_data.dart';
 import 'package:nutflix/model/movie.dart';
+import 'package:nutflix/model/search.dart';
 import 'package:nutflix/presentation/screens/search_screen/widget/search_reaults_tile_widget.dart';
 
+TextEditingController searchController = TextEditingController();
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -13,7 +16,21 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   String searchContent = '';
-  List<Movie> searchResults = [];
+  late Future<List<Movie>> searchResults;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    searchResults = MovieData().getTrendingMovies();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    searchController.text = '';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +52,9 @@ class _SearchScreenState extends State<SearchScreen> {
           Container(
             height: 50,
             color: const Color.fromARGB(255, 46, 46, 46),
-            child:  Row(
+            child: Row(
               children: [
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(left: 20, right: 10),
                   child: Icon(
                     Icons.search,
@@ -46,18 +63,22 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
                 Expanded(
                   child: TextField(
+                    controller: searchController,
                     onChanged: (value) {
-                      _searchMovies(value);
+                      setState((){
+                         _searchMovies(value);
+                      });
+                   
                     },
                     autofocus: true,
                     cursorColor: Colors.white,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: 'Search games, shows, movies...',
                       border: OutlineInputBorder(borderSide: BorderSide.none),
                     ),
                   ),
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(right: 20, left: 10),
                   child: Icon(
                     Icons.mic_none_outlined,
@@ -67,9 +88,8 @@ class _SearchScreenState extends State<SearchScreen> {
               ],
             ),
           ),
-          
           FutureBuilder(
-            future: Future.value(searchResults),
+            future: searchResults,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(
@@ -107,13 +127,15 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Future<void> _searchMovies(String value) async {
-    try {
-      List<Movie> results = await MovieData().getTrendingMovies();
-      setState(() {
-        searchResults = results;
-      });
-    } catch (e) {
-      print('Error searching movies: $e');
-    }
+  try {
+    List<Movie> results = await SearchingData().getSearchingMovies(value);
+    setState(() {
+      print('function started.....');
+      searchResults = Future.value(results);
+    });
+  } catch (e) {
+    print('Error searching movies: $e');
   }
+}
+
 }

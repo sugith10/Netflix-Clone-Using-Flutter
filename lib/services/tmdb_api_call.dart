@@ -1,14 +1,17 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
-import 'package:nutflix/model/search.dart';
 
 class ApiCall {
  final String _apiKey = '8fd500dec7d3830c67ec5e565258e1a9';
  final String imageLink = 'https://image.tmdb.org/t/p/original';
 
-  Future<List> getData(String url)async{
-    final uri = Uri.parse(url+_apiKey);
+  Future<List> getData(String url , {bool search = false})async{
+    Uri uri = Uri.parse(url+_apiKey);
+    if(search){
+      uri = Uri.parse(url);
+    }
+    
     try{
       final response = await http.get(uri);
 
@@ -27,19 +30,10 @@ class ApiCall {
     return [];
   }
 
-  Future<List<SearchMovie>> search(value) async { 
+  Future<List> search(String value, ) async { 
   final searchsUrl = 'https://api.themoviedb.org/3/search/movie?query=$value&include_adult=false&language=en-US&api_key=$_apiKey';
-  final response = await http.get(Uri.parse(searchsUrl));
-  if (response.statusCode == 200) {
-    final decodedData = json.decode(response.body)['results'] as List<dynamic>;
-    return decodedData
-        .map((movie) => SearchMovie.fromJson(movie))
-        // ignore: unnecessary_null_comparison
-        .where((movie) => movie.posterPath != null && movie.posterPath.isNotEmpty)
-        .toList();
-  } else {
-    throw Exception('Something Happened');
-  }
+  log(searchsUrl );
+  return getData(searchsUrl , search: true);
 }
 
 }

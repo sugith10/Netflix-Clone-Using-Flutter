@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nutflix/controller/api_controller/get_movie_data.dart';
+import 'package:nutflix/model/movie.dart';
 import 'package:nutflix/presentation/screens/home_screen/widget/play.dart';
 
 
@@ -24,6 +25,7 @@ class Wallpaper extends StatelessWidget {
             child: Text('No wallpaper available'),
           );
         } else {
+          
           String wallpaperUrl = snapshot.data!;
           return Stack(
             children: [
@@ -45,7 +47,9 @@ class Wallpaper extends StatelessWidget {
                       icon: Icons.play_arrow,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        //  IndividualContentScrnNavigation().navigateToIndividualContentScrn(context, movie) 
+                      },
                       child: PlayButton(
                         color: Colors.grey.withOpacity(0.4),
                         textColor: const Color.fromRGBO(255, 255, 255, 1),

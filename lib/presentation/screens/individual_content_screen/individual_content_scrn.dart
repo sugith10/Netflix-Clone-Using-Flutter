@@ -32,7 +32,7 @@ class IndividualContentScrn extends StatelessWidget {
       body: ListView(
         children: [
           Image.network(
-            movie.movieBackdrop,
+            movie.movieBackdrop!,
             width: double.infinity,
             height: 250,
             fit: BoxFit.cover,

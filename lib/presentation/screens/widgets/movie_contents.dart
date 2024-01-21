@@ -4,24 +4,36 @@ import 'package:nutflix/controller/screen_actions_controller/screen_navigation_c
 import 'package:nutflix/model/movie.dart';
 import 'package:nutflix/presentation/screens/home_screen/widget/personal_category.dart';
 
-class MovieContents extends StatelessWidget {
+class MovieContents extends StatefulWidget {
   final String title;
   final Future<List<Movie>>? movies;
   const MovieContents({required this.movies, required this.title, super.key});
 
+  @override
+  State<MovieContents> createState() => _MovieContentsState();
+}
+
+class _MovieContentsState extends State<MovieContents> {
+  late Future<List<Movie>> _moviesFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _moviesFuture = widget.movies!;
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         PersonalCategoryTitle(
-                title: title,
+                title: widget.title,
               ),
         SizedBox(
           height: 170,
           width: MediaQuery.of(context).size.width,
           child: FutureBuilder<List<Movie>>(
-        future: movies,
+        future:_moviesFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator()); 

@@ -41,7 +41,7 @@ class NewItemsWidget extends StatelessWidget {
                 height: 150,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Image.network(movie.movieBackdrop, width: double.infinity,height: 50,fit:  BoxFit.cover,)))
+                  child: Image.network(movie.movieBackdrop!, width: double.infinity,height: 50,fit:  BoxFit.cover,)))
                ,
                const SizedBox(height: 8,),
                 Text('Coming February 14'),

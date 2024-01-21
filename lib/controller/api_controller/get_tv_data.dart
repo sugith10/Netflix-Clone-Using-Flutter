@@ -16,8 +16,8 @@ class TvData{
    final result = await apiCall.getData(url);
     if(result.isNotEmpty){
       List<TvShow> movieDetails = result.map((dynamic item) {
-        String tvPoster = apiCall.imageLink + item['poster_path'];
-        String backDrop = apiCall.imageLink + item['backdrop_path'];
+        String tvPoster = apiCall.imageLink + ( item['poster_path'] ?? '/dyA6hSkM0rOIOjIAXHPXTiQ0wxO.jpg');
+        String backDrop = apiCall.imageLink + (item['backdrop_path'] ?? '/dyA6hSkM0rOIOjIAXHPXTiQ0wxO.jpg') ;
         return TvShow(
        tvShowName: item['original_name'],
        tvShowPoster: tvPoster,
@@ -36,8 +36,8 @@ class TvData{
     List<TvShow> topRatedTvSeries = await _fetchTvData(_topRatedTvSeriesUrl);
     return topRatedTvSeries;
   }
-  // Future<List<TvShow>> popularTvSeries()async{
-  //   List<TvShow> popularTvSeries = await _fetchTvData(_popularTvSeriesUrl);
-  //   return popularTvSeries;
-  // }
+  Future<List<TvShow>> popularTvSeries()async{
+    List<TvShow> popularTvSeries = await _fetchTvData(_popularTvSeriesUrl);
+    return popularTvSeries;
+  }
 }
